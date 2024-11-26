@@ -1,0 +1,30 @@
+---
+title: Remote Desktop - Pyraf
+cluster: "*"
+form:
+  - bc_num_hours
+  - bc_num_slots
+  - image_file
+  - launch_script
+  - custom_num_cores
+  - node_type
+  # VNC settings
+  - bc_vnc_idle
+  - bc_vnc_resolution
+  - bc_queue
+attributes:
+  image_file: "pyraf.sif"
+  launch_script: "xfce.sh"
+  bc_num_slots: null
+  custom_num_cores:
+    widget: "number_field"
+    label: "Number of CPUs"
+    value: 1
+    min: 1
+    max: 4
+    step: 1
+  bc_vnc_idle: 0
+  bc_vnc_resolution:
+    required: true
+  node_type: null
+  bc_queue: "desktop"

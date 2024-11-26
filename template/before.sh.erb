@@ -1,0 +1,72 @@
+#!/bin/bash
+
+export SING_OVERLAYS=""
+
+## create custom desktop folder
+export DESKTOP_FOLDER="${PWD}/desktop"
+export XDG_DESKTOP_DIR=$DESKTOP_FOLDER
+mkdir -p $DESKTOP_FOLDER
+echo "TIMING: $(date -Iseconds) - set up desktop folder"
+
+## create the configuration folder
+export XDG_CONFIG_HOME=$PWD/config
+mkdir -p $XDG_CONFIG_HOME
+export XDG_CONFIG_DIRS=$XDG_CONFIG_HOME
+echo "TIMING: $(date -Iseconds) - set up config folder"
+
+## we set a separate desktop folder, but unique Documents , etc etc 
+cat > $XDG_CONFIG_DIRS/user-dirs.dirs  <<EOF
+XDG_DESKTOP_DIR="$DESKTOP_FOLDER"
+XDG_DOCUMENTS_DIR="$HOME/Documents"
+XDG_DOWNLOAD_DIR="$HOME/Downloads"
+XDG_MUSIC_DIR="$HOME/Music"
+XDG_PICTURES_DIR="$HOME/Pictures"
+XDG_PUBLICSHARE_DIR="$HOME/Public"
+XDG_TEMPLATES_DIR="$HOME/Templates"
+XDG_VIDEOS_DIR="$HOME/Videos"
+EOF
+echo "TIMING: $(date -Iseconds) - set up user dirs folder"
+
+# Create a desktop icon for Gazebo
+cat > $DESKTOP_FOLDER/Gazebo.desktop <<EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Gazebo 11
+Comment=3-D Robot simulator
+Exec=/usr/bin/gazebo
+Icon=gazebo
+Path=
+Terminal=false
+StartupNotify=true
+EOF
+chmod +x $DESKTOP_FOLDER/Gazebo.desktop
+
+# Create a desktop icon for VS Codium
+cat > $DESKTOP_FOLDER/VSCodium.desktop <<EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=VSCodium
+Comment=Code editor
+Exec=/usr/share/codium/codium %F
+Icon=vscodium
+Path=
+Terminal=false
+StartupNotify=false
+EOF
+chmod +x $DESKTOP_FOLDER/VSCodium.desktop
+
+# Create a desktop icon for MATLAB
+cat > $DESKTOP_FOLDER/MATLAB.desktop <<EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MATLAB
+Comment=MATLAB
+Exec=/opt/MATLAB/R2024a/bin/matlab -desktop -softwareopengl &
+Icon=<%= session.staged_root.join("assets", "matlab.png") %>
+Terminal=false
+StartupNotify=false
+EOF
+chmod +x $DESKTOP_FOLDER/MATLAB.desktop
