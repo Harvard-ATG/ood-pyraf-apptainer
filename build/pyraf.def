@@ -46,6 +46,9 @@ From: ubuntu:20.04
         /bin/bash /miniconda.sh -b -p /opt/conda
         rm /miniconda.sh
 
+        # Update the PATH environment variable
+        export PATH=/opt/conda/bin:$PATH
+
         # Configure conda and install IRAF and PyRAF
         conda config --add channels http://ssb.stsci.edu/astroconda
 
