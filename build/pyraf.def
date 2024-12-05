@@ -2,7 +2,7 @@ Bootstrap: docker
 From: ubuntu:20.04
 
 %post
-# Install packages needed for baseline desktop and ros installation
+# Install packages needed for baseline desktop installation
     echo "$(date -Iminutes) START - apt package install" && \
     apt-get update -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -56,7 +56,7 @@ From: ubuntu:20.04
         conda create -n iraf python=2.7 iraf pyraf stsci -y
 
         #todo: activate conda env on startup
-`
+
 %environment
     # Persist environment variable setup across sessions
 

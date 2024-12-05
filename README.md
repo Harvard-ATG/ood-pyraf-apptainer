@@ -14,5 +14,5 @@ root@ip:/# spacktivate apptainer
 ```
 - Build the image from the `pyraf.def` file by running `apptainer build pyraf.sif pyraf.def` Note: the `pyraf.sif` should be available in the `/shared/apptainerImages` folder
 
-- After the image is successful you can add the app by following the [Adding OOD app runbook](https://docs.google.com/document/d/1LejSmmgY7rJDBwl1gl-Q835lSbf6v2b2J3TFhxPNwfc/edit?tab=t.0#heading=h.n0uvlxdrj7e3)
+- After the image is successful you can add the app by following the [Adding OOD app runbook](https://docs.google.com/document/d/1LejSmmgY7rJDBwl1gl-Q835lSbf6v2b2J3TFhxPNwfc/edit?tab=t.0#heading=h.n0uvlxdrj7e3)(`internal HUIT documentation`)
 
