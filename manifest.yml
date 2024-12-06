@@ -1,8 +1,8 @@
 ---
-name: Remote Desktop (Pyraf/DS9)
+name: Remote Desktop (Pyraf)
 icon: fa://desktop
 category: Interactive Apps
 subcategory: Desktops
 role: batch_connect
 description: |
-  This form will launch a remote desktop with a basic xfce interface. The remote desktop contains Pyraf for python v2.7 and DS9
+  This form will launch a remote desktop with a basic xfce interface. The remote desktop contains Iraf, Pyraf, and DS9
