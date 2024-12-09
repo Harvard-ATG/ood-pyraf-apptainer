@@ -59,6 +59,7 @@ From: ubuntu:20.04
 
 %environment
     # Persist environment variable setup across sessions
+    export PATH=/opt/conda/bin:$PATH
 
 %runscript
     # When the container runs, execute necessary shell environment setup
